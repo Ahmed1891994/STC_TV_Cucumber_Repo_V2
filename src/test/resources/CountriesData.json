@@ -1,0 +1,44 @@
+{
+	"KSA": {
+		"type": [
+			{
+				"LITE": "15"
+			},
+			{
+				"CLASSIC": "25"
+			},
+			{
+				"PREMIUM": "60"
+			}
+		],
+		"Currency": "SAR"
+	},
+	"Bahrain": {
+		"type": [
+			{
+				"LITE": "2"
+			},
+			{
+				"CLASSIC": "3"
+			},
+			{
+				"PREMIUM": "6"
+			}
+		],
+		"Currency": "BHD"
+	},
+	"Kuwait": {
+		"type": [
+			{
+				"LITE": "1.2"
+			},
+			{
+				"CLASSIC": "2.5"
+			},
+			{
+				"PREMIUM": "4.8"
+			}
+		],
+		"Currency": "KWD"
+	}
+}
