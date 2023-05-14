@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.aeonbits.owner.ConfigFactory;
 import org.testng.Reporter;
-
 import base.BrowserActions;
 import base.TestSetupContext;
 import base.ElementActions;
@@ -52,7 +51,7 @@ public class Hooks{
 		// initialize target class to choose to work locally or remotely
 		MyLogger.info("initialize target class to choose to work locally or remotely");
 		targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(), configreader.getBrowserType());
-
+        
 		// Set the driver
 		MyLogger.info("Set the driver");
 		testsetupcontext.setDriver(targettype.createWebDriverInstance());

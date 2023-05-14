@@ -11,8 +11,7 @@ plugin= {"pretty",
 		"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
 		"json:target/cucumber-report.json",
 		"junit:target/cucumber-reports/Cucumber.xml",
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-		)
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class TestNGTestRunner extends AbstractTestNGCucumberTests{
 	@Override
 	@DataProvider(parallel = true)
