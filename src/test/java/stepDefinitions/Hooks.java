@@ -50,7 +50,7 @@ public class Hooks{
 		// make new class from targettype class and get environment and pass the environment to it
 		// initialize target class to choose to work locally or remotely
 		MyLogger.info("initialize target class to choose to work locally or remotely");
-		targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(), configreader.getBrowserType());
+		targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(), configreader.getBrowserType(),testsetupcontext);
         
 		// Set the driver
 		MyLogger.info("Set the driver");

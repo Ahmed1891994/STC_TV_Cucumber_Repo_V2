@@ -1,9 +1,6 @@
 package driver;
 
 import org.openqa.selenium.WebDriver;
-import org.picocontainer.DefaultPicoContainer;
-import org.picocontainer.MutablePicoContainer;
-
 import base.TestSetupContext;
 import utils.MyLogger;
 
@@ -12,13 +9,10 @@ public class TargetType{
 	private String browser;
 	private TestSetupContext testsetupcontext;
 	
-	public TargetType(TestSetupContext testsetupcontext) {
-		this.testsetupcontext = testsetupcontext;
-	}
-	
-	public TargetType(String target,String browser) {
+	public TargetType(String target,String browser , TestSetupContext testsetupcontext) {
 		this.browser = browser;
 		this.target = target;
+		this.testsetupcontext = testsetupcontext;
 	}
 
 	public WebDriver createWebDriverInstance() {
@@ -32,12 +26,7 @@ public class TargetType{
                 break;
             case "REMOTE":
             	MyLogger.info("Create remote driver");
-            	// Create a Pico Container instance
-            	MutablePicoContainer container = new DefaultPicoContainer();
-            	// Register the TestSetupContext dependency with the container
-            	container.addComponent(testsetupcontext);
-            	// Resolve the RemoteManager dependency from the container
-            	RemoteManager remotemanager = container.getComponent(RemoteManager.class);
+            	RemoteManager remotemanager = new RemoteManager(testsetupcontext);
                 webdriver = remotemanager.createRemoteInstance(browserfactorymanager.get(browser).getOptions());
                 break;
             default:    	

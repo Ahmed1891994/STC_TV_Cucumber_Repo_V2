@@ -84,7 +84,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M6</version>
+				<version>3.1.0</version>
 				<configuration>
 					<properties>
 						<property>
@@ -95,8 +95,6 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-					<parallel>tests</parallel>
-					<threadCount>3</threadCount>
 					<useUnlimitedThreads>true</useUnlimitedThreads>
 					<systemPropertyVariables>
 						<!-- this is log file locations, to be retrived using system.getproperty(log.directory) -->
@@ -207,13 +205,6 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.11.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-picocontainer</artifactId>
-			<version>7.12.0</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
