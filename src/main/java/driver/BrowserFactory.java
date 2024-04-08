@@ -8,7 +8,7 @@ import utils.MyLogger;
 public abstract class BrowserFactory {
 	protected WebDriver driver;
 	protected abstract WebDriver driverSetup();
-	protected abstract AbstractDriverOptions getOptions();
+	protected abstract AbstractDriverOptions<?>  getOptions();
 	
 	public WebDriver getDriver()
 	{
