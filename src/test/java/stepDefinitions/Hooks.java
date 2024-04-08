@@ -1,9 +1,7 @@
 package stepDefinitions;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import org.aeonbits.owner.ConfigFactory;
-import org.testng.Reporter;
 import base.BrowserActions;
 import base.TestSetupContext;
 import base.ElementActions;
@@ -19,24 +17,21 @@ import utils.JsonFileHandler;
 import utils.MyLogger;
 
 public class Hooks{
-	private Environment cfg;
-	private TargetType targettype;
-	private JsonFileHandler jsonfilehandler;
-	private TestSetupContext testsetupcontext;
+	private final TestSetupContext testsetupcontext;
 	
 	public Hooks(TestSetupContext testsetupcontext) {
         this.testsetupcontext = testsetupcontext;
     }
 	
 	@Before
-	public synchronized void initialization(Scenario scenario) throws IOException {
+	public synchronized void initialization(Scenario scenario) {
 		MyLogger.info("Reading Data Json files");
-		jsonfilehandler = new JsonFileHandler();
+		JsonFileHandler jsonfilehandler = new JsonFileHandler();
 		testsetupcontext.setCountriesData(jsonfilehandler.loadJSONs("CountriesData"));
 		
 		// Update Environment parameters
 		MyLogger.info("Update Environment parameters using owner library");
-		cfg = ConfigFactory.create(Environment.class);
+		Environment cfg = ConfigFactory.create(Environment.class);
 
 		// save the environment variable into threadlocal
 		MyLogger.info("save the environment variable into threadlocal");
@@ -50,7 +45,7 @@ public class Hooks{
 		// make new class from targettype class and get environment and pass the environment to it
 		// initialize target class to choose to work locally or remotely
 		MyLogger.info("initialize target class to choose to work locally or remotely");
-		targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(),
+		TargetType targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(),
 				configreader.getBrowserType(),
 				testsetupcontext);
         
@@ -78,7 +73,7 @@ public class Hooks{
 	}
 	
 	@After
-	public void teardown(Scenario scenario) throws IOException {
+	public void teardown(Scenario scenario) {
 		if (scenario.isFailed()) {
 			MyLogger.error("Test Failed");
 			MyLogger.error("Take Screen shot");

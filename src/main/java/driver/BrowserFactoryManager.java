@@ -6,7 +6,7 @@ import utils.MyLogger;
 
 
 public class BrowserFactoryManager {
-	private Map<String, BrowserFactory> map = new HashMap<>();
+	private final Map<String, BrowserFactory> map = new HashMap<>();
 	
 	public BrowserFactoryManager()
 	{

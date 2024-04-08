@@ -23,12 +23,6 @@ public class BrowserConfigReader {
 		return browserType.get();
 	}
 
-	// Clear the browser type
-	public void clearBrowserType() {
-		browserType.remove();
-		MyLogger.info("Browser type cleared");
-	}
-
 	// Check if the provided browser type is valid
 	private boolean isValidBrowserType(String browser) {
 		if (browser == null || browser.isEmpty()) {
