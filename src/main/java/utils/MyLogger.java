@@ -11,7 +11,7 @@ public class MyLogger {
     private static final String EXECUTION_START_MESSAGE = "%s%n%n************** Execution Started : %s **************%n";
     private static final String EXECUTION_END_MESSAGE = "%s%n%n************** Execution End : %s **************%n";
     private static final String REGULAR_EXPRESSION = "[^a-zA-Z0-9]";
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     private MyLogger() {
         // Private constructor to hide the implicit public one

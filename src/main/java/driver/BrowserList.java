@@ -4,5 +4,5 @@ public enum BrowserList {
     CHROME,
     FIREFOX,
     IE,
-    SAFARI;
+    SAFARI
 }

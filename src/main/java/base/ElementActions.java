@@ -23,8 +23,8 @@ import io.qameta.allure.Attachment;
 import utils.MyLogger;
 
 public class ElementActions {
-	private WebDriver driver;
-	WebDriverWait wait;
+	private final WebDriver driver;
+	final WebDriverWait wait;
 	private static final String WAIT_DONE = "Wait Done";
 	private static final String WAIT_ELEMENT_BE_VISIBLE = "Wait Element to be Visible";
 	public ElementActions(WebDriver driver) {

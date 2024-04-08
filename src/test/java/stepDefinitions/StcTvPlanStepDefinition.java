@@ -11,7 +11,7 @@ import pages.StcTvPlanPage;
 public class StcTvPlanStepDefinition {
 
 	StcTvPlanPage stctvplanpage;
-	TestSetupContext testsetupcontext;
+	final TestSetupContext testsetupcontext;
 	
 	public StcTvPlanStepDefinition(TestSetupContext testsetupcontext)
 	{

@@ -5,9 +5,9 @@ import base.TestSetupContext;
 import utils.MyLogger;
 
 public class TargetType{
-	private String target;
-	private String browser;
-	private TestSetupContext testsetupcontext;
+	private final String target;
+	private final String browser;
+	private final TestSetupContext testsetupcontext;
 	
 	public TargetType(String target,String browser , TestSetupContext testsetupcontext) {
 		this.browser = browser;

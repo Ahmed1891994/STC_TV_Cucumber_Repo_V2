@@ -7,10 +7,10 @@ import environments.Environment;
 import utils.MyLogger;
 
 public class TestSetupContext {
-    private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    protected ThreadLocal<Environment> environment = new ThreadLocal<>();
-    protected ThreadLocal<ElementActions> elementActions = new ThreadLocal<>();
-    protected ThreadLocal<BrowserActions> browserActions = new ThreadLocal<>();
+    private final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    protected final ThreadLocal<Environment> environment = new ThreadLocal<>();
+    protected final ThreadLocal<ElementActions> elementActions = new ThreadLocal<>();
+    protected final ThreadLocal<BrowserActions> browserActions = new ThreadLocal<>();
     protected JSONObject countriesData = new JSONObject();
 
     public void setDriver(WebDriver driver) {

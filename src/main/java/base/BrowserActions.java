@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.MyLogger;
 
 public class BrowserActions {
-	private WebDriver driver;
-	WebDriverWait wait;
+	private final WebDriver driver;
+	final WebDriverWait wait;
 
 	public BrowserActions(WebDriver driver) {
 		this.driver = driver;

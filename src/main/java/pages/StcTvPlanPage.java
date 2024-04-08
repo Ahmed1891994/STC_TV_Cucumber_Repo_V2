@@ -7,11 +7,11 @@ import base.TestSetupContext;
 import utils.MyLogger;
 
 public class StcTvPlanPage {
-	private By countrylistbtn = By.id("country-name");
-	private By pricelbl = By.xpath("//div[@class='plan-names']/descendant::div[@class='price']");
-	private By planslbl = By.xpath("//div[@class='plan-names']/descendant::strong[@class='plan-title']");
-	private By closebtn = By.id("country-poppup-close");
-	private TestSetupContext testsetupcontext;
+	private final By countrylistbtn = By.id("country-name");
+	private final By pricelbl = By.xpath("//div[@class='plan-names']/descendant::div[@class='price']");
+	private final By planslbl = By.xpath("//div[@class='plan-names']/descendant::strong[@class='plan-title']");
+	private final By closebtn = By.id("country-poppup-close");
+	private final TestSetupContext testsetupcontext;
 	
 	public StcTvPlanPage(TestSetupContext testsetupcontext)
 	{
