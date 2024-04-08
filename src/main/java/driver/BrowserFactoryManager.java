@@ -6,21 +6,22 @@ import utils.MyLogger;
 
 
 public class BrowserFactoryManager {
-	private BrowserFactory chrome = new ChromeManager();
-	private BrowserFactory edge =  new EdgeManager();
-	private BrowserFactory firefox =  new FireFoxManager();
 	private Map<String, BrowserFactory> map = new HashMap<>();
 	
 	public BrowserFactoryManager()
 	{
-		map.put("Chrome",chrome);
-		map.put("Edge",edge);
-		map.put("Firefox",firefox);	
+		map.put("Chrome",new ChromeManager());
+		map.put("Edge",new EdgeManager());
+		map.put("Firefox",new FireFoxManager());
 	}
-	
-	public BrowserFactory get(String param)
-	{
-		MyLogger.info("get the browser Manager from the parameter passed -> " + param);
-		return map.get(param);
+
+	public BrowserFactory get(String param) {
+		MyLogger.info("Getting the browser manager for the parameter: " + param);
+		BrowserFactory factory = map.get(param);
+		if (factory == null) {
+			// Handle unsupported browser type gracefully
+			throw new IllegalArgumentException("Unsupported browser type: " + param);
+		}
+		return factory;
 	}
 }

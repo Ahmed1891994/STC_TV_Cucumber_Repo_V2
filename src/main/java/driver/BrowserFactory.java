@@ -8,6 +8,7 @@ import utils.MyLogger;
 public abstract class BrowserFactory {
 	protected WebDriver driver;
 	protected abstract WebDriver driverSetup();
+	protected abstract AbstractDriverOptions getOptions();
 	
 	public WebDriver getDriver()
 	{
@@ -19,7 +20,4 @@ public abstract class BrowserFactory {
 		}	
 		return driver;
 	}
-
-	@SuppressWarnings("rawtypes")
-	protected abstract AbstractDriverOptions getOptions();
 }
