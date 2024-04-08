@@ -14,7 +14,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
-import utils.ConfigReader;
+import utils.BrowserConfigReader;
 import utils.JsonFileHandler;
 import utils.MyLogger;
 
@@ -32,7 +32,7 @@ public class Hooks{
 	public synchronized void initialization(Scenario scenario) throws IOException {
 		MyLogger.info("Reading Data Json files");
 		jsonfilehandler = new JsonFileHandler();
-		testsetupcontext.setCountriesData(jsonfilehandler.loadJson("CountriesData"));
+		testsetupcontext.setCountriesData(jsonfilehandler.loadJSONs("CountriesData"));
 		
 		// Update Environment parameters
 		MyLogger.info("Update Environment parameters using owner library");
@@ -43,14 +43,16 @@ public class Hooks{
 		testsetupcontext.setEnvironment(cfg);
 		
 		//Get Browser from xml file
-		MyLogger.info("Get Browser From xml file");
-		ConfigReader configreader = new ConfigReader();
-		configreader.setBrowserType(Reporter.getCurrentTestResult().getTestClass().getXmlTest().getParameter("browser"));
+		MyLogger.info("Get Browser From TestNG file or default if not assigned");
+		BrowserConfigReader configreader = new BrowserConfigReader();
+		configreader.setBrowserType(configreader.getCurrentTestNGBrowserType());
 		
 		// make new class from targettype class and get environment and pass the environment to it
 		// initialize target class to choose to work locally or remotely
 		MyLogger.info("initialize target class to choose to work locally or remotely");
-		targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(), configreader.getBrowserType(),testsetupcontext);
+		targettype = new TargetType(testsetupcontext.getEnvironment().gettarget(),
+				configreader.getBrowserType(),
+				testsetupcontext);
         
 		// Set the driver
 		MyLogger.info("Set the driver");
