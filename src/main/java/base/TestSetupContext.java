@@ -1,29 +1,23 @@
 package base;
 
-import org.json.JSONObject;
-import org.openqa.selenium.WebDriver;
 import environments.Environment;
+import org.openqa.selenium.WebDriver;
 import utils.MyLogger;
 
 public class TestSetupContext {
-    private final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     protected final ThreadLocal<Environment> environment = new ThreadLocal<>();
     protected final ThreadLocal<ElementActions> elementActions = new ThreadLocal<>();
     protected final ThreadLocal<BrowserActions> browserActions = new ThreadLocal<>();
-
-    public void setDriver(WebDriver driver) {
-        MyLogger.debug("save the driver to ThreadLocal variable");
-        this.driver.set(driver);
-    }
+    private final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public WebDriver getDriver() {
         MyLogger.debug("get the driver from ThreadLocal variable");
         return driver.get();
     }
 
-    public void setEnvironment(Environment env) {
-        MyLogger.debug("save the Environment to ThreadLocal variable");
-        this.environment.set(env);
+    public void setDriver(WebDriver driver) {
+        MyLogger.debug("save the driver to ThreadLocal variable");
+        this.driver.set(driver);
     }
 
     public Environment getEnvironment() {
@@ -31,9 +25,9 @@ public class TestSetupContext {
         return environment.get();
     }
 
-    public void setElementActions(ElementActions elementActions) {
-        MyLogger.debug("save the ElementActions to ThreadLocal variable");
-        this.elementActions.set(elementActions);
+    public void setEnvironment(Environment env) {
+        MyLogger.debug("save the Environment to ThreadLocal variable");
+        this.environment.set(env);
     }
 
     public ElementActions getElementActions() {
@@ -41,14 +35,19 @@ public class TestSetupContext {
         return elementActions.get();
     }
 
-    public void setBrowserActions(BrowserActions browserActions) {
-        MyLogger.debug("save the BrowserActions to ThreadLocal variable");
-        this.browserActions.set(browserActions);
+    public void setElementActions(ElementActions elementActions) {
+        MyLogger.debug("save the ElementActions to ThreadLocal variable");
+        this.elementActions.set(elementActions);
     }
 
     public BrowserActions getBrowserActions() {
         MyLogger.debug("get the BrowserActions from ThreadLocal variable");
         return browserActions.get();
+    }
+
+    public void setBrowserActions(BrowserActions browserActions) {
+        MyLogger.debug("save the BrowserActions to ThreadLocal variable");
+        this.browserActions.set(browserActions);
     }
 
     public void removeDriver() {

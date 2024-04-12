@@ -1,9 +1,8 @@
 package utils;
 
+import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import io.cucumber.java.Scenario;
 
 public class MyLogger {
 

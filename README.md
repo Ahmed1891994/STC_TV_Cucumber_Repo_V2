@@ -1,9 +1,12 @@
 # 📝Cucumber JAVA Test Automation Framework
-- This project is an open-source Test automation Framework that allows you to perform multiple actions to test a web application's functionality, behaviour, 
-which provides easy to use syntax, and easy to setup environment according to the needed requirements for testing
+
+- This project is an open-source Test automation Framework that allows you to perform multiple actions to test a web
+  application's functionality, behaviour,
+  which provides easy to use syntax, and easy to setup environment according to the needed requirements for testing
 - This project is based on Cucumber , Selenium WebDriver, TestNG Runner, and Maven
 
 ## 📝Features
+
 - Support BDD
 - Support Running Testing on Following Browsers: Chrome, Firefox, & Edge
 - Support Cross-Browsing Mode
@@ -16,6 +19,7 @@ which provides easy to use syntax, and easy to setup environment according to th
 Website URL: [herokuapp](https://the-internet.herokuapp.com/)
 
 ## 📝 Installation
+
 [Java(JDK) 17](https://www.oracle.com/java/technologies/downloads/)
 
 [Eclipse](https://www.eclipse.org/downloads/)
@@ -29,11 +33,13 @@ Website URL: [herokuapp](https://the-internet.herokuapp.com/)
 [LogExpert](https://github.com/zarunbal/LogExpert/releases/tag/v1.9.0)
 
 ## 📝 The main Frameworks included in the project:
+
 * Page Object Model (POM) design pattern
 * Factory Design Pattern
 * Solid Principals
 
 ## 📝 Framework  covers
+
 * The URL and Browser Configuration are defined in the respective settings.properties
 * SOLID java Princibles Specially (Single responsibility + open/closed)
 * Pom.xml will add JAR files and libraries needed by Project and build the project
@@ -45,16 +51,22 @@ Website URL: [herokuapp](https://the-internet.herokuapp.com/)
 * Handle Different Environment (DEV,UAT,PROD)
 
 ## 📝 How To Run
+
 ### Run Locally
-* Dev environment  -> mvn clean test or mvn clean test -Denv=dev
-* UAT environment  -> mvn clean test -Denv=uat
+
+* Dev environment -> mvn clean test or mvn clean test -Denv=dev
+* UAT environment -> mvn clean test -Denv=uat
+
 ### Run On Grid
+
 * You need first to run docker-compose up in project path as this will Prepare the Grid
 * PROD environment -> mvn clean test -Denv=prod
+
 ### Run From Docker container
-*  you need to get the jar files mvn clean package -Denv=prod
-*  then run a jenkinsfile in master it will do the show
-*  now all data needed being dockerized then pushed to docker hub
-*  then from the branch run the other jenkinsfile from another pipeline.
-*  then it will pull the container from docker hub then run the Tests and save results and logs
+
+* you need to get the jar files mvn clean package -Denv=prod
+* then run a jenkinsfile in master it will do the show
+* now all data needed being dockerized then pushed to docker hub
+* then from the branch run the other jenkinsfile from another pipeline.
+* then it will pull the container from docker hub then run the Tests and save results and logs
 
