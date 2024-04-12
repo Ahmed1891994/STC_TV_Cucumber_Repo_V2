@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import java.io.ByteArrayInputStream;
+
+import TestData.TestDataManager;
 import org.aeonbits.owner.ConfigFactory;
 import base.BrowserActions;
 import base.TestSetupContext;
@@ -15,6 +17,7 @@ import io.qameta.allure.Allure;
 import utils.BrowserConfigReader;
 import utils.JsonFileHandler;
 import utils.MyLogger;
+import utils.TestDataManagerFactory;
 
 public class Hooks{
 	private final TestSetupContext testsetupcontext;
@@ -27,7 +30,10 @@ public class Hooks{
 	public synchronized void initialization(Scenario scenario) {
 		MyLogger.info("Reading Data Json files");
 		JsonFileHandler jsonfilehandler = new JsonFileHandler();
-		testsetupcontext.setCountriesData(jsonfilehandler.loadJSONs("CountriesData"));
+		// Set the TestDataManager in the factory
+		TestDataManagerFactory.setTestDataManager(new TestDataManager());
+		// Load and set countries data
+		TestDataManagerFactory.getTestDataManager().setData("CountriesData", jsonfilehandler.loadJSONs("CountriesData"));
 		
 		// Update Environment parameters
 		MyLogger.info("Update Environment parameters using owner library");

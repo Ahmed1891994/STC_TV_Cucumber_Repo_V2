@@ -2,7 +2,6 @@ package base;
 
 import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
-
 import environments.Environment;
 import utils.MyLogger;
 
@@ -11,7 +10,6 @@ public class TestSetupContext {
     protected final ThreadLocal<Environment> environment = new ThreadLocal<>();
     protected final ThreadLocal<ElementActions> elementActions = new ThreadLocal<>();
     protected final ThreadLocal<BrowserActions> browserActions = new ThreadLocal<>();
-    protected JSONObject countriesData = new JSONObject();
 
     public void setDriver(WebDriver driver) {
         MyLogger.debug("save the driver to ThreadLocal variable");
@@ -53,14 +51,6 @@ public class TestSetupContext {
         return browserActions.get();
     }
 
-    public JSONObject getCountriesData() {
-        return countriesData;
-    }
-
-    public void setCountriesData(JSONObject countrydata) {
-        this.countriesData = countrydata;
-    }
-    
     public void removeDriver() {
         driver.remove();
         MyLogger.debug("remove the driver from ThreadLocal variable");

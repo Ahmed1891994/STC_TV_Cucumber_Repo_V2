@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import io.qameta.allure.Step;
 import base.TestSetupContext;
 import utils.MyLogger;
+import utils.TestDataManagerFactory;
 
 public class StcTvPlanPage {
 	private final By countrylistbtn = By.id("country-name");
@@ -78,7 +79,7 @@ public class StcTvPlanPage {
 	
 	@Step("get Expected Prices step ...")
 	public String[] getExpectedPrices(String countrykey) {
-	    JSONArray typeData = testsetupcontext.getCountriesData().getJSONObject(countrykey).getJSONArray("type");
+	    JSONArray typeData = TestDataManagerFactory.getTestDataManager().getData("CountriesData").getJSONObject(countrykey).getJSONArray("type");
 	    String[] prices = new String[typeData.length()];
 	    for (int i = 0; i < typeData.length(); i++) {
 	        JSONObject typeObject = typeData.getJSONObject(i);
@@ -90,7 +91,7 @@ public class StcTvPlanPage {
 	
 	@Step("get Expected Plans step ...")
 	public String[] getExpectedPlans(String countrykey) {
-		JSONArray typeData = testsetupcontext.getCountriesData().getJSONObject(countrykey).getJSONArray("type");
+		JSONArray typeData = TestDataManagerFactory.getTestDataManager().getData("CountriesData").getJSONObject(countrykey).getJSONArray("type");
 		String[] plans = new String[typeData.length()];
 		for (int i = 0; i < typeData.length(); i++) {
 	        JSONObject typeObject = typeData.getJSONObject(i);
@@ -99,12 +100,12 @@ public class StcTvPlanPage {
 		MyLogger.info("Expected Types for country " + countrykey + " is " + String.join(", ", plans));
 		return plans;
 	}
-	
+
 	@Step("get Expected Currency step ...")
 	public String getExpectedCurrency(String countrykey) {
-		JSONObject countryData = testsetupcontext.getCountriesData().getJSONObject(countrykey);
-	    String currency = countryData.getString("Currency");
-	    MyLogger.info("Expected currency for country " + countrykey + " is " + currency);
-	    return currency;
+		JSONObject countryData = TestDataManagerFactory.getTestDataManager().getData("CountriesData").getJSONObject(countrykey);
+		String currency = countryData.getString("Currency");
+		MyLogger.info("Expected currency for country " + countrykey + " is " + currency);
+		return currency;
 	}
 }

@@ -9,7 +9,6 @@ import io.qameta.allure.Attachment;
 import pages.StcTvPlanPage;
 
 public class StcTvPlanStepDefinition {
-
 	StcTvPlanPage stctvplanpage;
 	final TestSetupContext testsetupcontext;
 	

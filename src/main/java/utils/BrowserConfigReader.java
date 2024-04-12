@@ -54,17 +54,4 @@ public class BrowserConfigReader {
 	private String getDefaultBrowserType() {
 		return System.getProperty("browser", "Chrome");
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
