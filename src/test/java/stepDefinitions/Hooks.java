@@ -15,7 +15,7 @@ import org.aeonbits.owner.ConfigFactory;
 import utils.BrowserConfigReader;
 import utils.JsonFileHandler;
 import utils.MyLogger;
-import utils.TestDataManagerFactory;
+import utils.testDataManager.TestDataManagerFactory;
 
 import java.io.ByteArrayInputStream;
 

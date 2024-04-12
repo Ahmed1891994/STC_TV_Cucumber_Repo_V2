@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
 import utils.MyLogger;
-import utils.TestDataManagerFactory;
+import utils.testDataManager.TestDataManagerFactory;
 
 public class StcTvPlanPage {
     private final By countrylistbtn = By.id("country-name");
